@@ -1,0 +1,40 @@
+diff --git a/api/routes/share.ts b/api/routes/share.ts
+--- a/api/routes/share.ts
++++ b/api/routes/share.ts
+@@ -1,9 +1,14 @@
+ import { db } from '../db';
++import { track } from '../lib-analytics';
+ 
+ export async function shareProject(req, res) {
+   const { projectId, email, permission } = req.body;
+   await db.shares.create({ projectId, email, permission, sharedBy: req.user.id });
+   await sendShareEmail(email, projectId);
++  track(req.user.id, 'project_shared', { permission, recipient_email: email });
+   res.status(201).json({ ok: true });
+ }
+diff --git a/web/src/share/ShareDialog.tsx b/web/src/share/ShareDialog.tsx
+--- a/web/src/share/ShareDialog.tsx
++++ b/web/src/share/ShareDialog.tsx
+@@ -1,20 +1,32 @@
+ import { useState, useEffect } from 'react';
+ import { api } from '../api';
++import { trackEvent } from '../lib/analytics';
+ 
+ export function ShareDialog({ projectId, onClose }: { projectId: string; onClose: () => void }) {
+   const [email, setEmail] = useState('');
++  useEffect(() => { trackEvent('Share Dialog Opened'); }, []);
+ 
+   async function send() {
+     await api.post('/share', { projectId, email, permission });
++    trackEvent('Project Shared', { permission });
+     onClose();
+   }
+   return (
+     <dialog open>
+-      <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
++      <input value={email} onFocus={() => trackEvent('share_email_field_focused')} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+       <button onClick={send}>Share</button>
++      <button onClick={() => { trackEvent('share_close_clicked'); onClose(); }}>Close</button>
+     </dialog>
+   );
+ }

@@ -1,0 +1,6 @@
+{
+  "name": "mixpanel-tracking",
+  "description": "Set up, extend, audit and clean up Mixpanel event tracking from your code. Plain-English proposals, and no changes until you approve.",
+  "version": "0.1.0",
+  "author": { "name": "Praveen Gondi" }
+}
