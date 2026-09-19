@@ -95,7 +95,7 @@ Thanks. I have not changed any code yet. Here is what your answers change, using
 ## What changed in my recommendations
 - Item 12 (region): your project is in the EU, so the missing setting means no data arrives from either the website or the server. This is now the most urgent fix.
 - Item 6 (automatic tracking): you do not want it, so I recommend turning it off. With it off, the hand-written page view becomes your only page tracking, so item 7 now recommends replacing it with one `page_viewed` event with a page detail.
-- Items 11 (Segment): set aside as you asked. I will leave the Segment files alone.
+- Item 11 (Segment): set aside as you asked. I will leave the Segment files alone.
 
 ## Now safe to fix
 - Item 12, the EU setting, is now certain, has no downside and needs no choice from you. I moved it to "Safe to fix now" and marked it urgent.
