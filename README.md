@@ -54,7 +54,13 @@ It is written for product managers, founders and growth leads, as well as develo
 npx skills add Praveeng0823/mixpanel-tracking-skill
 ```
 
-The command takes the repository name. It finds the skill in this repository's `skills/mixpanel-tracking/` folder for you, then asks which AI tools to install it for. Restart the tool afterwards. Other ways to install are in [Install in detail](#install-in-detail).
+The command takes the repository name. It finds the skill in this repository's `skills/mixpanel-tracking/` folder for you, then asks which AI tools to install it for. Restart the tool afterwards.
+
+In the list of tools, make sure **Claude Code** is ticked. To skip the menu and install for Claude Code, for all your projects, run:
+
+```bash
+npx skills add Praveeng0823/mixpanel-tracking-skill -g -a claude-code
+``` Other ways to install are in [Install in detail](#install-in-detail).
 
 **2. Ask in normal words**
 

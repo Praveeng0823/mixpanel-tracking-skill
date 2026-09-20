@@ -117,7 +117,7 @@ Mixpanel lists these common reasons events do not appear:
 - **[Mixpanel]** Events cannot be deleted or renamed in Mixpanel. Hiding is reversible. Blocking stops future data and the data cannot be recovered. Merging combines duplicate events without changing raw data and only project owners can do it. Autocapture events cannot be merged.
 - **[Ours]** Renaming an event in code therefore creates a new event and splits history. The skill warns before any rename and never acts inside Mixpanel. It can hand the user a checklist of events they may want to review in Mixpanel's UI.
 
-## Gaps still to close before release
+## Known gaps
 - Mobile SDK behaviour (React Native, Swift, Android): best-effort in v1.
 - Group implementation details and limits.
 - Geolocation and attribution pages.
